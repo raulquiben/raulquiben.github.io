@@ -64,6 +64,8 @@ h1 { overflow-wrap: anywhere; font: 800 clamp(1.8rem, 7vw, 3.4rem)/1.02 var(--di
 .btn svg { width: 16px; height: 16px; fill: currentColor; flex: none; }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 .btn:hover { border-color: var(--accent); }
+.btn.big { padding: 13px 24px; font-size: 16px; font-weight: 600; gap: 10px; }
+.btn.big svg { width: 20px; height: 20px; }
 
 /* flight profile band */
 .profile-band { margin: 34px 0 8px; color: var(--muted); }
@@ -82,12 +84,8 @@ h3 { font: 600 1.05rem/1.35 var(--body); margin: 0; }
 .summary { font-size: 1.08rem; max-width: 68ch; margin: 0; }
 .summary strong { font-weight: 600; }
 
-.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-top: 24px; }
-.stat { background: var(--surface); padding: 14px 16px; min-width: 0; }
-.stat b { display: block; font: 800 1.5rem/1.1 var(--display); font-stretch: 112%; font-variant-numeric: tabular-nums; }
-.stat small { color: var(--muted); font-size: .82rem; line-height: 1.35; display: block; margin-top: 4px; }
 
-.focus { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.focus { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .focus article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; min-width: 0; }
 .focus .code { font: 500 11px/1 var(--mono); color: var(--h2); letter-spacing: .1em; }
 .focus h3 { margin: 8px 0 6px; }
@@ -148,7 +146,6 @@ footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line);
   .photo { order: -1; width: 112px; height: 112px; }
   .btn { max-width: 100%; overflow-wrap: anywhere; }
   .profile-band text { display: none; }
-  .stats { grid-template-columns: repeat(2, 1fr); }
   .focus { grid-template-columns: 1fr; }
   .work { grid-template-columns: 1fr; }
   .work-item img { height: auto; max-height: 260px; }
@@ -174,7 +171,7 @@ footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line);
       <p class="role">Optimization, trajectory design &amp; data-driven modeling for sustainable aviation</p>
       <p class="where">Madrid, Spain</p>
       <nav class="links" aria-label="Contact">
-        <a class="btn primary" href="https://www.linkedin.com/in/raul-quiben/" target="_blank" rel="noopener">
+        <a class="btn primary big" href="https://www.linkedin.com/in/raul-quiben/" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-4.96c0-1.18-.02-2.7-1.65-2.7-1.65 0-1.9 1.29-1.9 2.62V21h-4z"/></svg>
           LinkedIn
         </a>
@@ -182,7 +179,7 @@ footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line);
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.2V17h16V7.2l-8 5.3zM5.3 7 12 11.4 18.7 7z"/></svg>
           raulquiben@gmail.com
         </a>
-        <a class="btn" href="CV_Raul_Quiben_Figueroa.pdf" target="_blank" rel="noopener">
+        <a class="btn big" href="CV_Raul_Quiben_Figueroa.pdf" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3h2v9.6l3.3-3.3 1.4 1.4L12 16.4l-5.7-5.7 1.4-1.4 3.3 3.3zM4 18h16v2H4z"/></svg>
           CV (PDF)
         </a>
@@ -209,12 +206,6 @@ footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line);
   <section aria-labelledby="s-profile">
     <h2 id="s-profile">Profile</h2>
     <p class="summary">Aerospace engineer completing a PhD (defence expected December 2026) on the <strong>design and trajectory optimization of hydrogen-powered aircraft</strong> at <a href="https://www.uc3m.es" target="_blank" rel="noopener">Universidad Carlos III de Madrid</a>. I turn open engineering questions into well-posed optimization problems and solve them with my own Python tools: multidisciplinary design optimization, optimal control (direct and indirect methods) and large-scale data analysis of flights, weather and contrails. My work is peer-reviewed and won a national innovation award, and I have researched in Spain, Italy, the US (Stanford) and Japan (Tohoku).</p>
-    <div class="stats">
-      <div class="stat"><b>3</b><small>journal articles (1 published, 2 in review)</small></div>
-      <div class="stat"><b>6</b><small>conference papers &amp; talks (AIAA, ECCOMAS, EGU, ECATS)</small></div>
-      <div class="stat"><b>€10k</b><small>Luis Azcárraga Aeronautic Innovation Award 2025</small></div>
-      <div class="stat"><b>4</b><small>countries of research: ES · IT · US · JP</small></div>
-    </div>
   </section>
 
   <section aria-labelledby="s-focus">
@@ -226,14 +217,19 @@ footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line);
         <p>Python/OpenMDAO platforms (MOTIVATION) coupling aerodynamics, weights, LH₂ tanks, propulsion, mission and cost models to size hydrogen and hybrid-electric aircraft for minimum emissions and cost.</p>
       </article>
       <article>
+        <span class="code">PERF · MISSION</span>
+        <h3>Aircraft performance</h3>
+        <p>Point-mass flight dynamics and segment-by-segment mission analysis across the flight envelope: drag polars calibrated against BADA, Kriging surrogates of engine decks, take-off to landing fuel burn and payload-range trade-offs for conventional and hydrogen aircraft.</p>
+      </article>
+      <article>
         <span class="code">OCP · 4D</span>
         <h3>Trajectory optimization</h3>
         <p>Optimal-cruise solutions with Pontryagin's Maximum Principle and 3D/4D direct-method flight planning over real weather fields, minimising fuel, time and climate impact.</p>
       </article>
       <article>
-        <span class="code">CO₂ · non-CO₂</span>
-        <h3>Contrails &amp; climate data</h3>
-        <p>Contrail modelling (CoCiP, pycontrails, climate-change functions), LES validation at Stanford and ground-camera / ADS-B / weather data pipelines for contrail detection.</p>
+        <span class="code">DATA · CO₂ · non-CO₂</span>
+        <h3>Flight, weather &amp; contrail data</h3>
+        <p>Python pipelines that join ADS-B / OpenSky flight tracks, ERA5 reanalysis and ground-camera images; contrail modelling (CoCiP, pycontrails, climate-change functions) and LES validation at Stanford.</p>
       </article>
     </div>
   </section>
