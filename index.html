@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--ARTIFACT-START-->
+<title>Raúl Quibén Figueroa</title>
+<meta name="description" content="Raúl Quibén Figueroa — Aerospace engineer specialised in optimization, trajectory optimization and data-driven modeling for sustainable aviation.">
+<meta property="og:title" content="Raúl Quibén Figueroa · Aerospace Engineer">
+<meta property="og:description" content="Optimization, trajectory optimization and data-driven modeling for sustainable aviation. PhD candidate at UC3M.">
+<meta property="og:image" content="foto.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600;112,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one 880px reading column, opened by a flight-profile band (climb · cruise · descent) that frames name + photo. */
+:root {
+  --bg: #f5f7fa;          /* sky-white, slight blue bias */
+  --surface: #ffffff;
+  --ink: #0f1a2b;         /* cockpit-night navy */
+  --muted: #5a6779;
+  --line: #d9e0e9;
+  --accent: #1d4fd8;      /* cobalt: links, markers */
+  --h2: #0e8a7e;          /* hydrogen teal, used once per section at most */
+  --accent-soft: #e6edfc;
+  --display: "Archivo", "Arial Narrow", Arial, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1220; --surface: #111a2c; --ink: #e6ecf5; --muted: #9aa8bc; --line: #24314a;
+    --accent: #7ea2ff; --h2: #4fd1c1; --accent-soft: #1a2747; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b1220; --surface: #111a2c; --ink: #e6ecf5; --muted: #9aa8bc; --line: #24314a;
+  --accent: #7ea2ff; --h2: #4fd1c1; --accent-soft: #1a2747; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 400 16px/1.6 var(--body);
+  padding-inline: 16px;
+}
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+img { max-width: 100%; }
+.wrap { max-width: 880px; margin: 0 auto; padding-block: 40px 64px; }
+
+/* ---------- hero ---------- */
+.hero { display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: end; }
+.hero > div { min-width: 0; }
+.eyebrow { font: 500 12px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+h1 { overflow-wrap: anywhere; font: 800 clamp(1.8rem, 7vw, 3.4rem)/1.02 var(--display); font-stretch: 112%; letter-spacing: -.01em; margin: 0; text-wrap: balance; }
+.role { font: 600 1.1rem/1.4 var(--display); font-stretch: 112%; margin: 12px 0 0; color: var(--accent); }
+.where { color: var(--muted); margin: 4px 0 0; }
+.photo { width: 148px; height: 148px; border-radius: 50%; object-fit: cover; border: 3px solid var(--surface); box-shadow: 0 0 0 1px var(--line); }
+.links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; font: 500 14px/1 var(--body); text-decoration: none; border: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+.btn svg { width: 16px; height: 16px; fill: currentColor; flex: none; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.btn:hover { border-color: var(--accent); }
+
+/* flight profile band */
+.profile-band { margin: 34px 0 8px; color: var(--muted); }
+.profile-band svg { display: block; width: 100%; height: auto; overflow: visible; }
+.profile-band .path { fill: none; stroke: var(--accent); stroke-width: 2; }
+.profile-band .trail { fill: none; stroke: var(--h2); stroke-width: 1; stroke-dasharray: 2 5; opacity: .9; }
+.profile-band .grid { stroke: var(--line); stroke-width: 1; }
+.profile-band text { font: 400 10px var(--mono); fill: var(--muted); letter-spacing: .06em; }
+.profile-band .tag { fill: var(--ink); font-weight: 500; }
+
+/* ---------- sections ---------- */
+section { margin-top: 44px; }
+h2 { font: 600 .82rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0 0 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; }
+h2 span { color: var(--accent); }
+h3 { font: 600 1.05rem/1.35 var(--body); margin: 0; }
+.summary { font-size: 1.08rem; max-width: 68ch; margin: 0; }
+.summary strong { font-weight: 600; }
+
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-top: 24px; }
+.stat { background: var(--surface); padding: 14px 16px; min-width: 0; }
+.stat b { display: block; font: 800 1.5rem/1.1 var(--display); font-stretch: 112%; font-variant-numeric: tabular-nums; }
+.stat small { color: var(--muted); font-size: .82rem; line-height: 1.35; display: block; margin-top: 4px; }
+
+.focus { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.focus article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; min-width: 0; }
+.focus .code { font: 500 11px/1 var(--mono); color: var(--h2); letter-spacing: .1em; }
+.focus h3 { margin: 8px 0 6px; }
+.focus p { margin: 0; color: var(--muted); font-size: .93rem; }
+
+.entry { display: grid; grid-template-columns: 150px 1fr; gap: 6px 24px; padding: 14px 0; border-top: 1px solid var(--line); }
+.entry:first-of-type { border-top: 0; padding-top: 0; }
+.entry > * { min-width: 0; }
+.when { font: 400 .82rem/1.6 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.org { color: var(--muted); font-weight: 400; }
+.entry ul { margin: 6px 0 0; padding-left: 18px; }
+.entry li { margin: 3px 0; }
+.entry p { margin: 4px 0 0; }
+
+.pubs { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.pubs li { display: grid; grid-template-columns: 92px 1fr; gap: 16px; }
+.pubs li > * { min-width: 0; }
+.kind { font: 500 11px/1.9 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.pubs .t { font-weight: 600; }
+.pubs .v { color: var(--muted); font-size: .93rem; }
+.badge { display: inline-block; font: 500 11px/1 var(--mono); letter-spacing: .05em; padding: 4px 7px; border-radius: 4px; background: var(--accent-soft); color: var(--accent); margin-left: 6px; vertical-align: 2px; }
+
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 40px; }
+.cols > * { min-width: 0; }
+.plain { margin: 0; padding-left: 18px; }
+.plain li { margin: 5px 0; }
+
+.skills { display: grid; gap: 12px; }
+.skill { display: grid; grid-template-columns: 170px 1fr; gap: 16px; }
+.skill > * { min-width: 0; }
+.skill dt { font-weight: 600; }
+.skill dd { margin: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 400 .82rem/1 var(--mono); padding: 6px 9px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+
+.langs { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 0; padding: 0; list-style: none; }
+.langs b { font-weight: 600; }
+.langs span { color: var(--muted); }
+
+footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+.print-only { display: none; }
+
+@media (max-width: 680px) {
+  .hero { grid-template-columns: 1fr; }
+  .photo { order: -1; width: 112px; height: 112px; }
+  .btn { max-width: 100%; overflow-wrap: anywhere; }
+  .profile-band text { display: none; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .focus { grid-template-columns: 1fr; }
+  .entry, .pubs li, .skill { grid-template-columns: 1fr; gap: 2px; }
+  .cols { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .profile-band .path { stroke-dasharray: 1400; stroke-dashoffset: 0; animation: fly 1.6s ease-out both; }
+  @keyframes fly { from { stroke-dashoffset: 1400; } to { stroke-dashoffset: 0; } }
+}
+
+/* ---------- print / PDF ---------- */
+@page { size: A4; margin: 13mm 14mm; }
+@media print {
+  :root { --bg: #fff; --surface: #fff; --ink: #0f1a2b; --muted: #4f5b6c; --line: #d5dce6; --accent: #1d4fd8; --h2: #0e8a7e; --accent-soft: #e6edfc; color-scheme: light; }
+  html { font-size: 9.1pt; }
+  body { font-size: 9.1pt; line-height: 1.38; padding: 0; }
+  .summary { font-size: 1rem; max-width: none; }
+  .stat, .focus h3 { font-size: 1rem; }
+  .wrap { max-width: none; padding: 0; }
+  .links, .profile-band, .screen-only, footer { display: none !important; }
+  .print-only { display: block; }
+  .hero { grid-template-columns: 1fr auto; gap: 16px; }
+  .photo { width: 92px; height: 92px; order: 0; }
+  h1 { font-size: 24pt; }
+  .role { font-size: 11.5pt; margin-top: 6px; }
+  .contact-print { margin-top: 6px; font-size: 9pt; color: var(--muted); }
+  .contact-print a { color: var(--ink); text-decoration: none; }
+  section { margin-top: 13px; break-inside: auto; }
+  h2 { margin-bottom: 8px; padding-bottom: 5px; font-size: 8pt; }
+  .stats { display: none; }
+  .focus { gap: 8px; }
+  .focus article { padding: 9px 11px; }
+  .focus p { font-size: 8.6pt; }
+  .entry { grid-template-columns: 105px 1fr; padding: 5px 0; gap: 2px 14px; break-inside: avoid; }
+  .entry ul { margin-top: 3px; }
+  .entry li { margin: 1px 0; }
+  .pubs { gap: 5px; }
+  .pubs li { grid-template-columns: 70px 1fr; gap: 10px; break-inside: avoid; }
+  .skill { grid-template-columns: 130px 1fr; gap: 10px; }
+  .skills { gap: 6px; }
+  .chip { padding: 2px 5px; font-size: 7.4pt; }
+  .chips { gap: 4px; }
+  .plain li { margin: 2px 0; }
+  a { color: inherit; text-decoration: none; }
+  .pubs a { color: var(--accent); }
+}
+</style>
+<!--ARTIFACT-HEAD-END-->
+</head>
+<body>
+<!--ARTIFACT-BODY-START-->
+<main class="wrap">
+
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Aerospace Engineer · PhD Candidate, UC3M</p>
+      <h1>Raúl Quibén Figueroa</h1>
+      <p class="role">Optimization, trajectory design &amp; data-driven modeling for sustainable aviation</p>
+      <p class="where screen-only">Madrid, Spain</p>
+      <p class="contact-print print-only">Madrid, Spain · <a href="mailto:raulquiben@gmail.com">raulquiben@gmail.com</a><!--PHONE--> · linkedin.com/in/raul-quiben · raulquiben.github.io</p>
+      <nav class="links" aria-label="Contact">
+        <a class="btn primary" href="https://www.linkedin.com/in/raul-quiben/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-4.96c0-1.18-.02-2.7-1.65-2.7-1.65 0-1.9 1.29-1.9 2.62V21h-4z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn" href="mailto:raulquiben@gmail.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.2V17h16V7.2l-8 5.3zM5.3 7 12 11.4 18.7 7z"/></svg>
+          raulquiben@gmail.com
+        </a>
+        <a class="btn" href="CV_Raul_Quiben_Figueroa.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3h2v9.6l3.3-3.3 1.4 1.4L12 16.4l-5.7-5.7 1.4-1.4 3.3 3.3zM4 18h16v2H4z"/></svg>
+          CV (PDF)
+        </a>
+      </nav>
+    </div>
+    <img class="photo" src="foto.jpg" alt="Portrait of Raúl Quibén Figueroa" width="148" height="148">
+  </header>
+
+  <figure class="profile-band" aria-hidden="true">
+    <svg viewBox="0 0 880 96">
+      <line class="grid" x1="0" y1="24" x2="880" y2="24"/>
+      <line class="grid" x1="0" y1="86" x2="880" y2="86"/>
+      <text x="0" y="18">FL370</text>
+      <text x="0" y="80">GND</text>
+      <path class="trail" d="M250 26 L620 26"/>
+      <path class="path" d="M40 86 C120 86 150 34 230 30 L430 30 L440 24 L640 24 C720 24 760 86 840 86"/>
+      <text class="tag" x="96" y="60">CLIMB</text>
+      <text class="tag" x="400" y="46">CRUISE · minimum climate impact</text>
+      <text class="tag" x="740" y="60">DESCENT</text>
+      <text x="300" y="18">LH₂ · contrail-aware</text>
+    </svg>
+  </figure>
+
+  <section aria-labelledby="s-profile">
+    <h2 id="s-profile">Profile</h2>
+    <p class="summary">Aerospace engineer finishing a PhD on the <strong>design and trajectory optimization of hydrogen-powered aircraft</strong> at Universidad Carlos III de Madrid. I turn open engineering questions into well-posed optimization problems and solve them with my own Python tools: multidisciplinary design optimization, optimal control (direct and indirect methods) and large-scale data analysis of flights, weather and contrails. My work is peer-reviewed and won a national innovation award, and I have researched in Spain, Italy, the US (Stanford) and Japan (Tohoku).</p>
+    <div class="stats screen-only">
+      <div class="stat"><b>3</b><small>journal articles (1 published, 2 in review)</small></div>
+      <div class="stat"><b>6</b><small>conference papers &amp; talks (AIAA, ECCOMAS, EGU, ECATS)</small></div>
+      <div class="stat"><b>€10k</b><small>Luis Azcárraga Aeronautic Innovation Award 2025</small></div>
+      <div class="stat"><b>4</b><small>countries of research: ES · IT · US · JP</small></div>
+    </div>
+  </section>
+
+  <section class="screen-only" aria-labelledby="s-focus">
+    <h2 id="s-focus">What I work on</h2>
+    <div class="focus">
+      <article>
+        <span class="code">MDO</span>
+        <h3>Aircraft design optimization</h3>
+        <p>Python/OpenMDAO platforms (MOTIVATION) coupling aerodynamics, weights, LH₂ tanks, propulsion, mission and cost models to size hydrogen and hybrid-electric aircraft for minimum emissions and cost.</p>
+      </article>
+      <article>
+        <span class="code">OCP · 4D</span>
+        <h3>Trajectory optimization</h3>
+        <p>Optimal-cruise solutions with Pontryagin's Maximum Principle and 3D/4D direct-method flight planning over real weather fields, minimising fuel, time and climate impact.</p>
+      </article>
+      <article>
+        <span class="code">CO₂ · non-CO₂</span>
+        <h3>Contrails &amp; climate data</h3>
+        <p>Contrail modelling (CoCiP, pycontrails, climate-change functions), LES validation at Stanford and ground-camera / ADS-B / weather data pipelines for contrail detection.</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-exp">
+    <h2 id="s-exp">Experience</h2>
+
+    <div class="entry">
+      <div class="when">Jul 2022 – present</div>
+      <div>
+        <h3>Predoctoral Research Fellow <span class="org">· Aircraft Operations Lab, Dept. of Aerospace Engineering, UC3M</span></h3>
+        <ul>
+          <li>Built <b>MOTIVATION</b>, a multidisciplinary design-optimization framework in Python (OpenMDAO, pyOptSparse) for hydrogen-powered and hybrid-electric transport aircraft, integrating aircraft design, performance, propulsion, cost and emissions models.</li>
+          <li>Formulated and solved large-scale optimal-control problems: an indirect (PMP) solver for optimal cruise of LH₂ aircraft and a direct 4D trajectory-optimization campaign over meteorological data, including contrail (non-CO₂) climate effects.</li>
+          <li>Funded by the HYDROGENATING-CM-UC3M project (2022–23) and a competitive Community of Madrid predoctoral contract (2023–26); contributed to proposals for the SESAR project <b>ZENITIA</b> on holistic climate-impact mitigation.</li>
+          <li>Published in JCR journals and presented at AIAA AVIATION, ECCOMAS AeroBest, EGU and ECATS; first-author paper awarded the Luis Azcárraga Aeronautic Innovation Award 2025.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">May – Jul 2024</div>
+      <div>
+        <h3>Visiting Researcher <span class="org">· Stanford University, Civil &amp; Environmental Engineering (Prof. C. Gorlé)</span></h3>
+        <p>Compared high-fidelity large-eddy simulations of early contrail formation with ground-based all-sky camera observations, together with Dr. T. Ferreira. Funded by a UC3M mobility grant; results presented at EGU 2025.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">Feb – Jun 2020</div>
+      <div>
+        <h3>Research Collaborator <span class="org">· University of Vigo (DRONEIoT project)</span></h3>
+        <p>Programmed and tested a LoRa-based drone communication system.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">May – Jul 2019</div>
+      <div>
+        <h3>Engineering Intern <span class="org">· AIMEN Technology Centre, Calculation &amp; Simulation Dept.</span></h3>
+        <p>Finite-element analysis in Abaqus for structural calculation, certification and project delivery.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-edu">
+    <h2 id="s-edu">Education</h2>
+
+    <div class="entry">
+      <div class="when">2022 – present</div>
+      <div>
+        <h3>PhD in Aerospace Engineering <span class="org">· Universidad Carlos III de Madrid</span></h3>
+        <p><i>H₂-fuelled aircraft configuration and trajectory optimization to reduce aeronautic environmental impact.</i> Supervisors: Dr. Manuel Soler and Dr. Rauno Cavallaro.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2020 – 2022</div>
+      <div>
+        <h3>MSc Aeronautical Engineering <span class="org">· Universidad Carlos III de Madrid</span></h3>
+        <p>Qualifying degree taught in English (7.89/10). Thesis: platform for the design and optimization of an H₂-powered regional aircraft. Erasmus+ semester at Politecnico di Milano (2022).</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2016 – 2020</div>
+      <div>
+        <h3>BSc Aerospace Engineering <span class="org">· Universidade de Vigo</span></h3>
+        <p>8.42/10, top 10% of the class; 2nd best national graduate (SEDEA 2020). Bachelor thesis at Tohoku University, Japan (Space Structures Lab, Prof. K. Makihara): semi-active vibration control with piezoelectric transducers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-pub">
+    <h2 id="s-pub">Publications <span>selected</span></h2>
+    <ul class="pubs">
+      <li><span class="kind">Journal</span><div><span class="t">Feasibility studies on regional aircraft retrofitted with hybrid-electric powertrains</span><span class="badge">Award 2025</span><br><span class="v">R. Quibén Figueroa, R. Cavallaro, A. Cini · <i>Aerospace Science and Technology</i> 151, 109246 (2024) · <a href="https://doi.org/10.1016/j.ast.2024.109246" target="_blank" rel="noopener">doi:10.1016/j.ast.2024.109246</a></span></div></li>
+      <li><span class="kind">Journal</span><div><span class="t">Multidisciplinary design optimization of hydrogen-powered transport aircraft</span><br><span class="v">R. Quibén Figueroa, R. Cavallaro, M. Soler · <i>Journal of Aircraft</i>, under review</span></div></li>
+      <li><span class="kind">Journal</span><div><span class="t">Optimal cruise of hydrogen transport aircraft</span><br><span class="v">R. Quibén Figueroa, A. Jafarimoghaddam, M. Soler, R. Cavallaro · <i>Aerospace Science and Technology</i>, submitted</span></div></li>
+      <li><span class="kind">Conference</span><div><span class="t">MOTIVATION (Mdao fOr susTaInable aViATION): framework for the design and optimization of H₂-powered aircraft</span><br><span class="v">AIAA AVIATION 2023 Forum, San Diego · <a href="https://doi.org/10.2514/6.2023-4151" target="_blank" rel="noopener">doi:10.2514/6.2023-4151</a></span></div></li>
+      <li><span class="kind">Conference</span><div><span class="t">Multidisciplinary design and optimization of H₂-powered regional aircraft architectures</span><br><span class="v">P. Norczyk Simon, R. Quibén Figueroa, A. Cini, R. Cavallaro · AIAA SciTech 2025, Orlando · <a href="https://doi.org/10.2514/6.2025-0360" target="_blank" rel="noopener">doi:10.2514/6.2025-0360</a></span></div></li>
+      <li><span class="kind">Conference</span><div><span class="t">Hydrogen-powered aircraft design: a multidisciplinary approach to minimize emissions and cost</span><br><span class="v">AeroBest 2025, ECCOMAS Thematic Conference on MDO of Aerospace Systems, Lisbon</span></div></li>
+      <li><span class="kind">Talk</span><div><span class="t">Comparing high-fidelity LES of early contrail formation with ground-based images</span><br><span class="v">EGU General Assembly 2025, Vienna · <a href="https://doi.org/10.5194/egusphere-egu25-17191" target="_blank" rel="noopener">doi:10.5194/egusphere-egu25-17191</a></span></div></li>
+      <li><span class="kind">Poster</span><div><span class="t">Toward climate-optimal trajectory optimization for H₂-powered aircraft</span><br><span class="v">5th ECATS Conference, Brussels, 2026</span></div></li>
+      <li><span class="kind">Talk</span><div><span class="t">Multidisciplinary optimization of H₂-powered aircraft to reduce emissions and costs</span><br><span class="v">4th ECATS Conference, Delft, 2023</span></div></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="s-awards">
+    <h2 id="s-awards">Awards &amp; grants</h2>
+    <div class="cols">
+      <ul class="plain">
+        <li><b>Luis Azcárraga Aeronautic Innovation Award 2025</b>, Fundación ENAIRE (€10,000)</li>
+        <li><b>Community of Madrid predoctoral contract</b> 2023, competitive call (score 8.98)</li>
+        <li><b>UC3M Mobility Grant</b> 2024 for the Stanford research stay</li>
+        <li><b>2nd Best National Graduate</b> in Aerospace Engineering, SEDEA 2020</li>
+      </ul>
+      <ul class="plain">
+        <li><b>JASSO Excellence Scholarship</b>, Japanese Government (2019), and Ge4 scholarship</li>
+        <li><b>Academic Excellence Awards</b>, Xunta de Galicia (2020) and Universidade de Vigo (2017)</li>
+        <li>Ministry of Education collaboration grant (2019) · Erasmus+ (2022)</li>
+        <li>Extraordinary Baccalaureate Award, Xunta de Galicia (2016)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-teach">
+    <h2 id="s-teach">Teaching, training &amp; outreach</h2>
+    <div class="cols">
+      <ul class="plain">
+        <li>Flight-simulator laboratory sessions for BSc and MSc students, UC3M (2024 – 2026)</li>
+        <li>Guest lecture on hydrogen-powered aircraft design, aircraft design course, UC3M (2024)</li>
+        <li>Flight-plan assignments, Air Navigation Systems, UC3M (2024/25)</li>
+        <li>Outreach: Madrid Science Fair 2024 · IES Pozuelo 2024</li>
+      </ul>
+      <ul class="plain">
+        <li>NATO AVT-385 Lecture Series on multi-fidelity MDO, Rome (2024)</li>
+        <li>ECATS More&amp;Less Autumn School on aviation climate impact, Munich (2023)</li>
+        <li>SESAR Innovation Days, Seville (2023)</li>
+        <li>HPC in heterogeneous architectures · ParaView · GitHub &amp; Copilot (UC3M)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-skills">
+    <h2 id="s-skills">Skills</h2>
+    <dl class="skills">
+      <div class="skill"><dt>Optimization</dt><dd class="chips"><span class="chip">MDO</span><span class="chip">Optimal control · PMP</span><span class="chip">Direct methods</span><span class="chip">Gradient-based NLP</span><span class="chip">SNOPT</span></dd></div>
+      <div class="skill"><dt>Programming &amp; data</dt><dd class="chips"><span class="chip">Python</span><span class="chip">NumPy · SciPy · pandas</span><span class="chip">OpenMDAO</span><span class="chip">pyOptSparse</span><span class="chip">CasADi</span><span class="chip">MATLAB</span><span class="chip">Git</span><span class="chip">HPC</span><span class="chip">LaTeX</span></dd></div>
+      <div class="skill"><dt>Aviation &amp; climate</dt><dd class="chips"><span class="chip">Aircraft design &amp; performance</span><span class="chip">Propulsion</span><span class="chip">LH₂ systems</span><span class="chip">ATM</span><span class="chip">pycontrails · CoCiP</span><span class="chip">ADS-B / OpenSky</span></dd></div>
+      <div class="skill"><dt>Simulation</dt><dd class="chips"><span class="chip">FEM (Abaqus)</span><span class="chip">OpenVSP</span><span class="chip">ParaView</span><span class="chip">Computer vision (OpenCV)</span></dd></div>
+    </dl>
+  </section>
+
+  <section aria-labelledby="s-lang">
+    <h2 id="s-lang">Languages</h2>
+    <ul class="langs">
+      <li><b>Spanish</b> <span>native</span></li>
+      <li><b>Galician</b> <span>native</span></li>
+      <li><b>English</b> <span>C1 · Cambridge CAE</span></li>
+      <li><b>Japanese</b> <span>A1</span></li>
+      <li><b>Portuguese · Italian</b> <span>basic</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>Raúl Quibén Figueroa · Madrid</span>
+    <span>Updated October 2026</span>
+  </footer>
+</main>
+<!--ARTIFACT-BODY-END-->
+</body>
+</html>
