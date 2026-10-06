@@ -101,6 +101,15 @@ h3 { font: 600 1.22rem/1.3 var(--display); margin: 0; }
 .focus h3 { margin: 8px 0 6px; }
 .focus p { margin: 0; color: var(--muted); font-size: .93rem; }
 
+.caps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 40px; }
+.cap { min-width: 0; border-top: 1px solid var(--line); padding-top: 14px; }
+.cap .code { font: 700 10.5px/1 var(--body); color: var(--h2); letter-spacing: .16em; text-transform: uppercase; }
+.cap h3 { margin: 8px 0 8px; }
+.cap ul { margin: 0 0 12px; padding: 0; list-style: none; }
+.cap li { position: relative; padding-left: 16px; margin: 4px 0; font-size: .95rem; }
+.cap li::before { content: ""; position: absolute; left: 0; top: .78em; width: 8px; height: 1px; background: var(--accent); }
+.cap li b { font-weight: 700; }
+
 .entry { display: grid; grid-template-columns: 150px 1fr; gap: 6px 24px; padding: 14px 0; border-top: 1px solid var(--line); }
 .entry:first-of-type { border-top: 0; padding-top: 0; }
 .entry > * { min-width: 0; }
@@ -156,7 +165,7 @@ footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line);
   .photo { order: -1; width: 112px; height: 112px; }
   .btn { max-width: 100%; overflow-wrap: anywhere; }
   .hero-fig text:not(.lbl) { display: none; }
-  .focus { grid-template-columns: 1fr; }
+  .focus, .caps { grid-template-columns: 1fr; }
   .work { grid-template-columns: 1fr; }
   .work-item img { height: auto; max-height: 260px; }
   .entry, .pubs li, .skill { grid-template-columns: 1fr; gap: 2px; }
@@ -286,6 +295,57 @@ footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line);
         <span class="code">DATA · CO₂ · non-CO₂</span>
         <h3>Flight, weather &amp; contrail data</h3>
         <p>Python pipelines that join ADS-B / OpenSky flight tracks, ERA5 reanalysis and ground-camera images; contrail modelling (CoCiP, pycontrails, climate-change functions) and LES validation at Stanford.</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-caps">
+    <h2 id="s-caps">Capabilities <span>techniques &amp; tools</span></h2>
+    <div class="caps">
+      <article class="cap">
+        <span class="code">Optimization</span>
+        <h3>Optimization techniques</h3>
+        <ul>
+          <li><b>Gradient-based nonlinear programming</b>: SQP (SNOPT) and interior-point (IPOPT) solvers with exact derivatives</li>
+          <li><b>Multidisciplinary design optimization</b>: coupled MDA, hybrid MDF/SAND formulations, analytic and algorithmic derivatives</li>
+          <li><b>Optimal control</b>: indirect methods (Pontryagin's Maximum Principle) and direct transcription (shooting, collocation), with continuation and warm starts</li>
+          <li><b>Multi-objective trade-offs</b>: Pareto fronts and sensitivity studies</li>
+        </ul>
+        <div class="chips"><a class="chip" href="https://openmdao.org" target="_blank" rel="noopener">OpenMDAO</a><span class="chip">pyOptSparse</span><span class="chip">CasADi</span><span class="chip">SNOPT</span><span class="chip">IPOPT</span></div>
+      </article>
+      <article class="cap">
+        <span class="code">Performance · design</span>
+        <h3>Aircraft performance &amp; design</h3>
+        <ul>
+          <li><b>Flight mechanics</b>: point-mass dynamics, mission analysis and flight-envelope constraints</li>
+          <li><b>Performance models</b>: BADA-calibrated drag polars, Kriging surrogates of engine decks, payload-range analysis</li>
+          <li><b>Conceptual sizing</b>: weights, aerodynamics, stability and trim, LH₂ tanks, hybrid-electric powertrains and thermal management</li>
+          <li><b>Emissions and cost</b>: CO₂, NOₓ and contrail effects, operating and fuel cost</li>
+        </ul>
+        <div class="chips"><span class="chip">BADA</span><span class="chip">OpenVSP</span><span class="chip">ATM</span></div>
+      </article>
+      <article class="cap">
+        <span class="code">Data</span>
+        <h3>Data analysis &amp; modelling</h3>
+        <ul>
+          <li><b>Weather data</b>: ERA5 reanalysis fields for trajectory optimization and contrail prediction</li>
+          <li><b>Flight data</b>: ADS-B / OpenSky tracks matched with weather and observations</li>
+          <li><b>Images</b>: ground-camera processing, projection and labelling of contrails (OpenCV)</li>
+          <li><b>Climate modelling</b>: CoCiP, pycontrails and climate-change functions; comparison with LES</li>
+          <li><b>Surrogate modelling and scientific visualisation</b></li>
+        </ul>
+        <div class="chips"><a class="chip" href="https://py.contrails.org" target="_blank" rel="noopener">pycontrails · CoCiP</a><span class="chip">ERA5</span><span class="chip">ADS-B / OpenSky</span><span class="chip">OpenCV</span><span class="chip">ParaView</span></div>
+      </article>
+      <article class="cap">
+        <span class="code">Software</span>
+        <h3>Programming &amp; tools</h3>
+        <ul>
+          <li><b>Python</b> as main language: research codes from physical models to complete optimization frameworks (MOTIVATION)</li>
+          <li><b>Scientific stack</b>: NumPy, SciPy, pandas, Matplotlib</li>
+          <li><b>Engineering software</b>: MATLAB, Abaqus (FEM), OpenVSP</li>
+          <li><b>Workflow</b>: Git / GitHub, HPC clusters, LaTeX</li>
+        </ul>
+        <div class="chips"><span class="chip">Python</span><span class="chip">NumPy · SciPy · pandas</span><span class="chip">Matplotlib</span><span class="chip">MATLAB</span><span class="chip">Git</span><span class="chip">HPC</span><span class="chip">LaTeX</span></div>
       </article>
     </div>
   </section>
@@ -463,16 +523,6 @@ footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line);
         <li>HPC in heterogeneous architectures · ParaView · GitHub &amp; Copilot (UC3M)</li>
       </ul>
     </div>
-  </section>
-
-  <section aria-labelledby="s-skills">
-    <h2 id="s-skills">Skills</h2>
-    <dl class="skills">
-      <div class="skill"><dt>Optimization</dt><dd class="chips"><span class="chip">MDO</span><span class="chip">Optimal control · PMP</span><span class="chip">Direct methods</span><span class="chip">Gradient-based NLP</span><span class="chip">SNOPT</span></dd></div>
-      <div class="skill"><dt>Programming &amp; data</dt><dd class="chips"><span class="chip">Python</span><span class="chip">NumPy · SciPy · pandas</span><a class="chip" href="https://openmdao.org" target="_blank" rel="noopener">OpenMDAO</a><span class="chip">pyOptSparse</span><span class="chip">CasADi</span><span class="chip">MATLAB</span><span class="chip">Git</span><span class="chip">HPC</span><span class="chip">LaTeX</span></dd></div>
-      <div class="skill"><dt>Aviation &amp; climate</dt><dd class="chips"><span class="chip">Aircraft design &amp; performance</span><span class="chip">Propulsion</span><span class="chip">LH₂ systems</span><span class="chip">ATM</span><a class="chip" href="https://py.contrails.org" target="_blank" rel="noopener">pycontrails · CoCiP</a><span class="chip">ADS-B / OpenSky</span></dd></div>
-      <div class="skill"><dt>Simulation</dt><dd class="chips"><span class="chip">FEM (Abaqus)</span><span class="chip">OpenVSP</span><span class="chip">ParaView</span><span class="chip">Computer vision (OpenCV)</span></dd></div>
-    </dl>
   </section>
 
   <section aria-labelledby="s-lang">
